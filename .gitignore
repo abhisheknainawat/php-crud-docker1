@@ -1,0 +1,6 @@
+echo "bitcot-key.pem" >> .gitignore
+echo ".vscode/" >> .gitignore
+echo "node_modules/" >> .gitignore
+echo "*.log" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo ".DS_Store" >> .gitignore

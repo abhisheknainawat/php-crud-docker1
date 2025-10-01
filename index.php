@@ -2,8 +2,9 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-// Fetch data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+// Fetch data in descending order (latest entry first)
+$result = mysqli_query($conn, "SELECT * FROM users ORDER BY id DESC");
+
 ?>
 
 <html>
@@ -32,6 +33,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 			echo "<td>".$res['email']."</td>";	
 			echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | 
 			<a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+			echo "</tr>";
 		}
 		?>
 	</table>
