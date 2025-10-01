@@ -4,18 +4,18 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region YOUR_REGION | docker login --username AWS --password-stdin YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 347363585996.dkr.ecr.us-east-1.amazonaws.com
+
   build:
     commands:
-      - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t php-crud-app .
-      - docker tag php-crud-app:latest YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/php-crud-app:latest
+      - docker tag php-crud-app:latest 347363585996.dkr.ecr.us-east-1.amazonaws.com/php-crud-app:latest
+
   post_build:
     commands:
-      - echo Build completed on `date`
-      - echo Pushing Docker image...
-      - docker push YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/php-crud-app:latest
+      - echo Pushing the Docker image to ECR...
+      - docker push 347363585996.dkr.ecr.us-east-1.amazonaws.com/php-crud-app:latest
 
 artifacts:
   files:
